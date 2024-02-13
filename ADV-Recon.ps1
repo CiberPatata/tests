@@ -5,12 +5,12 @@ $desiredLanguage = "en-US"
 $desiredKeyboardLayout = "0409:00000409"
 
 # Agrega el idioma especificado
-Add-WindowsLanguage -Language $desiredLanguage
+Add-WindowsPackage -Online -PackagePath "C:\Path\To\LanguagePack\lp.cab" -NoRestart
 
 # Establece el idioma recién agregado como idioma de visualización predeterminado
-Set-WinUILanguageOverride -Language $desiredLanguage
+Set-WinSystemLocale -SystemLocale $desiredLanguage -Force
 
-# Define la configuración regional para el idioma
+# Establece la configuración regional para el idioma
 Set-Culture $desiredLanguage
 
 # Establece la distribución del teclado especificada
